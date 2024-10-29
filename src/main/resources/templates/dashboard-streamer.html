@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Dashboard Streamer</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <style>
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    nav li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+<h1>Bienvenido, Streamer</h1>
+<nav>
+  <ul>
+    <!-- Opciones para Streamer -->
+    <li>
+      <a th:href="@{/iniciar-transmision}">Iniciar Transmisión</a>
+    </li>
+    <li>
+      <a th:href="@{/cargar-video}">Cargar Videos</a>
+    </li>
+
+    <!-- Opción común para cerrar sesión -->
+    <li>
+      <a th:href="@{/logout}">Cerrar Sesión</a>
+    </li>
+  </ul>
+</nav>
+</body>
+</html>
+

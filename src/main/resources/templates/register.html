@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Registro de Usuario</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
+  <style>
+    .form-container {
+      width: 50%;
+      margin: auto;
+      padding: 30px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+    .form-container h2 {
+      text-align: center;
+    }
+    .form-container form {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-container label, .form-container input, .form-container select {
+      margin-bottom: 15px;
+    }
+    .form-container button {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #45a049;
+    }
+    .error {
+      color: red;
+      text-align: center;
+    }
+    .mensaje {
+      color: green;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="form-container">
+  <h2>Registrar Usuario</h2>
+  <div th:if="${error}" class="error">
+    <p th:text="${error}"></p>
+  </div>
+  <div th:if="${mensaje}" class="mensaje">
+    <p th:text="${mensaje}"></p>
+  </div>
+  <form th:action="@{/register}" th:object="${usuario}" method="post">
+    <label for="username">Nombre de Usuario:</label>
+    <input type="text" id="username" name="username" th:field="*{username}" required />
+
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password" name="password" th:field="*{password}" required />
+
+    <label for="rol">Rol:</label>
+    <select id="rol" name="rol" required>
+      <option value="">Selecciona un rol</option>
+      <option value="ROLE_STREAMER">Streamer</option>
+      <option value="ROLE_VIEWER">Viewer</option>
+    </select>
+
+    <button type="submit">Registrar</button>
+  </form>
+  <p>¿Ya tienes una cuenta? <a th:href="@{/login}">Inicia sesión aquí</a>.</p>
+</div>
+</body>
+</html>

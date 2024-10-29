@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <style>
+        /* Estilos básicos para el formulario de inicio de sesión */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .login-container button {
+            padding: 10px;
+            background-color: #3498db;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #2980b9;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form th:action="@{/login}" method="post">
+        <div th:if="${param.error}">
+            <p class="error">Nombre de usuario o contraseña incorrectos.</p>
+        </div>
+        <div th:if="${param.logout}">
+            <p class="error">Has cerrado sesión exitosamente.</p>
+        </div>
+        <input type="text" name="username" placeholder="Nombre de usuario" required />
+        <input type="password" name="password" placeholder="Contraseña" required />
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+</body>
+</html>
+

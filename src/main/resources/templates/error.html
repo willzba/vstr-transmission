@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .error-container {
+            background-color: #fff;
+            padding: 40px;
+            margin: auto;
+            border-radius: 8px;
+            max-width: 600px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .home-link {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        .home-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="error-container">
+
+
+    <h2 class="error-title">😎¡Que ha pasado!</h2>
+    <p class="error-message" th:text="${error}">Descripción del error.</p>
+    <div th:if="${mensaje}" class="notification" id="notification" th:text="${mensaje}"></div>
+    <hr>
+    <a th:href="@{/dashboard}" class="home-link">Volver a la Página Principal</a>
+</div>
+
+</body>
+</html>
+
