@@ -1,6 +1,4 @@
 package com.vstr.video_chat.controller;
-
-import com.vstr.video_chat.Dto.TransmisionDto;
 import com.vstr.video_chat.model.Transmision;
 import com.vstr.video_chat.model.Usuario;
 import com.vstr.video_chat.model.WebRTCMessage;
